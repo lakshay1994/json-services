@@ -75,6 +75,15 @@ app.get('/getShirtThumbs', function(req, res) {
     });
 });
 
+app.get('/getShirt', function(req, res) {
+    res.json({
+        id: 2,
+        url: ['https://image.ibb.co/krgDJv/c.jpg', 'https://image.ibb.co/cyTtJv/b.jpg', 'https://image.ibb.co/khCyka/a.jpg'],
+        description: 'Nice color',
+        shirtPrice: 550
+    });
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
