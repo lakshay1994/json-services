@@ -8,13 +8,13 @@ app.get('/sliderImgUrl', function(req, res) {
     res.json({
         images: [{
             id: 1, 
-            url: 'https://image.ibb.co/iaOcdv/buy_300x300.jpg'
+            url: 'https://image.ibb.co/cOt4Qa/4.jpg'
         }, {
             id: 2, 
-            url: 'https://image.ibb.co/hejfWF/2.jpg'
+            url: 'https://image.ibb.co/crFvWF/5.jpg'
         }, {
             id: 3, 
-            url: 'https://image.ibb.co/gP9fWF/3.jpg'
+            url: 'https://image.ibb.co/hQRr5a/6.jpg'
         }] 
     });
 });
