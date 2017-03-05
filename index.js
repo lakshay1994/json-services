@@ -1,6 +1,6 @@
 var express = require('express');
 var cors = require('cors');
-
+var pg = require('pg');
 var app = express();
 app.use(cors());
 app.set('port', (process.env.PORT || 5000));
@@ -82,6 +82,18 @@ app.get('/getShirt', function(req, res) {
         description: 'Nice color',
         shirtPrice: 550
     });
+});
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM shirts_db ', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.json(result.rows); }
+    });
+  });
 });
 
 app.listen(app.get('port'), function() {
