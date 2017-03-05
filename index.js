@@ -86,7 +86,7 @@ app.get('/getShirt', function(req, res) {
 
 app.get('/db', function (request, response) {
     console.log(process.env.DATABASE_URL);
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+  pg.connect('postgres://wsybevmytdlkol:0a8db5764adcae7fd120144f776ceb4947204201af79130be60e2f89236e8d58@ec2-50-19-116-106.compute-1.amazonaws.com:5432/d4iikjfj7ftnjl?ssl=true', function(err, client, done) {
     client.query('SELECT * FROM shirts', function(err, result) {
       done();
       if (err)
