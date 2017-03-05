@@ -8,7 +8,7 @@ app.get('/sliderImgUrl', function(req, res) {
     res.json({
         images: [{
             id: 1, 
-            url: 'https://image.ibb.co/bEtw5a/1.jpg'
+            url: 'https://image.ibb.co/iaOcdv/buy_300x300.jpg'
         }, {
             id: 2, 
             url: 'https://image.ibb.co/hejfWF/2.jpg'
