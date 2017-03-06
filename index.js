@@ -102,7 +102,7 @@ var pg = require('pg');
 app.get('/getDB', function (request, response) {
     pg.defaults.ssl = true;
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('SELECT * FROM check123;', function(err, result) {
+    client.query('SELECT * FROM check123 where id=1;', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
