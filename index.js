@@ -84,20 +84,34 @@ app.get('/getShirt', function(req, res) {
 });
 
 var pg = require('pg');
-app.get('/getDB', function(req, res) {
-    pg.defaults.ssl = true;
-    pg.connect(process.env.DATABASE_URL, function(err, client) {
-    if (err) throw err;
-    console.log('Connected to postgres! Getting schemas...');
+// app.get('/getDB', function(req, res) {
+//     pg.defaults.ssl = true;
+//     pg.connect(process.env.DATABASE_URL, function(err, client) {
+//     if (err) throw err;
+//     console.log('Connected to postgres! Getting schemas...');
 
-    client
-        .query('SELECT * FROM check123;')
-        .on('row', function(row) {
-        console.log(JSON.stringify(row));
-        res.json(row);
-        });
+//     client
+//         .query('SELECT * FROM check123;')
+//         .on('row', function(row) {
+//         console.log(JSON.stringify(row));
+//         res.json(row);
+//         });
+//     });
+// });
+
+app.get('/getDB', function (request, response) {
+    pg.defaults.ssl = true;
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM check123;', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.json(result.rows ); }
     });
+  });
 });
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
