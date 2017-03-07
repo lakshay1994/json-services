@@ -100,12 +100,12 @@ app.get('/getShirt', function(req, res) {
 //     });
 // });
 
-app.get('/getDB', function (request, response) {
-    pg.defaults.ssl = true;
-  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-      var shirt_id = request.param('shirt_id');
-      console.log("shirt_id", shirt_id)
-    client.query('SELECT * FROM shirts where shirt_id=' + shirt_id, function(err, result) {
+app.get('/getShirt', function (request, response) {
+     pg.defaults.ssl = true;
+     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+         var shirt_id = request.param('shirt_id');
+         console.log("shirt_id", shirt_id)
+         client.query('SELECT * FROM shirts where shirt_id=' + shirt_id, function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
