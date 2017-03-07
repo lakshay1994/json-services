@@ -75,16 +75,6 @@ app.get('/sliderImgUrl', function(req, res) {
 //     });
 // });
 
-app.get('/getShirt', function(req, res) {
-    res.json({
-        id: 2,
-        url: ['https://image.ibb.co/krgDJv/c.jpg', 'https://image.ibb.co/cyTtJv/b.jpg', 'https://image.ibb.co/khCyka/a.jpg'],
-        description: 'Nice color',
-        shirtPrice: 550
-    });
-});
-
-
 // app.get('/getDB', function(req, res) {
 //     pg.defaults.ssl = true;
 //     pg.connect(process.env.DATABASE_URL, function(err, client) {
