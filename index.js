@@ -11,9 +11,9 @@ app.get('/sliderImgUrl', function(req, res) {
         client.query('SELECT * FROM slider_images', function(err, result) {
             done();
             if (err)
-            { console.error(err); response.send("Error " + err); }
+            { console.error(err); res.send("Error " + err); }
             else
-            { response.json(result); }
+            { res.json(result); }
         });
     });
 });
