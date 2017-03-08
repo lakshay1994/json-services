@@ -13,7 +13,7 @@ app.get('/sliderImgUrl', function(req, res) {
             if (err)
             { console.error(err); res.send("Error " + err); }
             else
-            { res.json(result); }
+            { res.json(result.rows); }
         });
     });
 });
