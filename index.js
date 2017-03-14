@@ -15,9 +15,9 @@ app.get('/sliderImgUrl', function(req, res) {
             { console.error(err); res.send("Error " + err); }
             else
             { res.json(result.rows); }
-        }); // client.query
-    }); // pg.connect
-}); // /sliderImgUrl
+        }); // client.query.
+    }); // pg.connect.
+}); // /sliderImgUrl.
 
 app.get('/getShirt', function (request, response) {
     pg.defaults.ssl = true;
@@ -30,22 +30,22 @@ app.get('/getShirt', function (request, response) {
         { console.error(err); response.send("Error " + err); }
         else
         { response.json(result.rows ); }
-        });
-    });
-});
+        }); // client.query 
+    });  // pg.connect.
+}); // /getShirt
 
 app.get('/getShirtThumbs', function (request, response) {
     pg.defaults.ssl = true;
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT shirt_id, shirt_price, shirt_thumb FROM shirts', function(err, result) {
-      done();
-      if (err)
-       { console.error(err); response.send("Error " + err); }
-      else
-       { response.json( result.rows ); }
-    });
-  });
-});
+        done();
+        if (err)
+        { console.error(err); response.send("Error " + err); }
+        else
+        { response.json( result.rows ); }
+        }); // client.query
+    }); // pg.connect
+}); // /getShirtThumbs
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
